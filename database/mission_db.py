@@ -8,10 +8,19 @@ class MissionDB:
     def create_mission(data: m):
         conn = db_connection.get_connection()
         cursor = conn.cursor()
+        risk = data.difficulty * 2 + data.importance
+        if 0 <= risk < 10:
+            risk_l = "LOW"
+        elif 10 <= risk < 18:
+            risk_l = "MEDIUM"
+        elif 18 <= risk < 25:
+            risk_l = "HIGH"
+        elif risk >= 25:
+            risk_l = "CRITICAL"
         sql = "INSERT INTO missions (title, description, location, difficulty, importance," \
-        "status, risk_level, assigned_agent_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        "status,risk_level assigned_agent_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         values = (data.title, data.description, data.location, data.difficulty,
-                  data.importance, data.status, data.risk_level, data.assigned_agent_id)
+                  data.importance, data.status,risk_l, data.assigned_agent_id)
         cursor.execute(sql, values)
         conn.commit()
         new_mission = cursor.lastrowid
@@ -49,15 +58,29 @@ class MissionDB:
     def assign_mission(m_id, a_id):
         conn = db_connection.get_connection()
         cursor = conn.cursor()
-        sql = "SELECT * FROM missions WHERE assigned_agent_id = %s AND status = %s OR status = %s"
-        value = (a_id, "ASSIGNED", "IN_PROGRESS")
-        cursor.execute(sql, value)
+        
+        sql1 = "SELECT * FROM missions WHERE assigned_agent_id = %s AND status = %s OR status = %s"
+        values1 = (a_id, "ASSIGNED", "IN_PROGRESS")
+        
+        cursor.execute(sql1, values1)
         missions_by_id = cursor.fetchall()
+        
         if len(missions_by_id) >= 3:
             return f"{a_id} has too many open tasks"
-        sql = "UPDATE missions SET assigned_agent_id = %s WHERE id = %s AND is_active = TRUE AND "
-        values = (m_id, a_id)
-        cursor.execute(sql, values)
+        
+        sql2 = "SELECT is_active FROM agents WHERE id = %s"
+        value2 = a_id,
+        
+        cursor.execute(sql2, value2)
+        is_active = cursor.fetchone()
+        
+        if is_active == False:
+            return f"{a_id} is not active"
+        
+        sql3 = "UPDATE missions SET assigned_agent_id = %s WHERE id = %s"
+        values3 = (m_id, a_id)
+        
+        cursor.execute(sql3, values3)
         conn.commit()
         cursor.close()
         conn.close()
