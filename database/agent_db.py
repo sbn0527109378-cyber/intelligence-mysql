@@ -13,9 +13,10 @@ class AgentDB:
         values = (data.name, data.specialty, data.is_active, data.completed_missions, data.failed_missions, data.agent_rank)
         cursor.execute(sql, values)
         conn.commit()
+        new_agent = cursor.lastrowid
         cursor.close()
         conn.close()
-        return "agent created successfully"
+        return new_agent
     
     @staticmethod
     def get_all_agents():
@@ -30,16 +31,19 @@ class AgentDB:
     
     @staticmethod
     def get_agent_by_id(id):
-        conn = db_connection.get_connection()
-        cursor = conn.cursor()
-        sql = "SELECT * FROM agents WHERE ID = %s"
-        value = id,
-        cursor.execute(sql, value)
-        agent_by_id = cursor.fetchone()
-        cursor.close()
-        conn.close()
-        return agent_by_id
-    
+        try:
+            conn = db_connection.get_connection()
+            cursor = conn.cursor()
+            sql = "SELECT * FROM agents WHERE ID = %s"
+            value = id,
+            cursor.execute(sql, value)
+            agent_by_id = cursor.fetchone()
+            cursor.close()
+            conn.close()
+            return agent_by_id
+        except Exception:
+            return None
+
     @staticmethod
     def update_agent(id, data: a):
         conn = db_connection.get_connection()
