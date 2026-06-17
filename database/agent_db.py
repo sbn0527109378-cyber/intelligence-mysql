@@ -4,6 +4,7 @@ from pydantic_classes import agent
 a = agent.Agent
 
 class AgentDB:
+    @staticmethod
     def create_agent(data: a):
         conn = db_connection.get_connection()
         cursor = conn.cursor()
@@ -16,6 +17,7 @@ class AgentDB:
         conn.close()
         return "agent created successfully"
     
+    @staticmethod
     def get_all_agents():
         conn = db_connection.get_connection()
         cursor = conn.cursor()
@@ -26,6 +28,7 @@ class AgentDB:
         conn.close()
         return all_agents
     
+    @staticmethod
     def get_agent_by_id(id):
         conn = db_connection.get_connection()
         cursor = conn.cursor()
@@ -37,6 +40,7 @@ class AgentDB:
         conn.close()
         return agent_by_id
     
+    @staticmethod
     def update_agent(id, data: a):
         conn = db_connection.get_connection()
         cursor = conn.cursor()
@@ -49,5 +53,73 @@ class AgentDB:
         conn.close()
         return "agent updated successfully"
 
+    @staticmethod
     def deactivate_agent(id):
-        pass
+        conn = db_connection.get_connection()
+        cursor = conn.cursor()
+        sql = "UPDATE agents SET is_active = FALSE WHERE id = %s"
+        value = id,
+        cursor.execute(sql, value)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return "agent updated successfully"
+    
+    @staticmethod
+    def increment_completed(id):
+        conn = db_connection.get_connection()
+        cursor = conn.cursor()
+        sql = "SELECT completed_missions FROM agents WHERE id = %s"
+        value = id,
+        cursor.execute(sql, value)
+        tasks_completed = cursor.fetchone()
+        sql1 = "UPDATE agents SET completed_missions = %s WHERE id = %s"
+        value1 = (tasks_completed[0] + 1, id)
+        cursor.execute(sql1, value1)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return "tasks completed updated successfully"
+    
+    @staticmethod
+    def increment_failed(id):
+        conn = db_connection.get_connection()
+        cursor = conn.cursor()
+        sql = "SELECT failed_missions FROM agents WHERE id = %s"
+        value = id,
+        cursor.execute(sql, value)
+        tasks_failed = cursor.fetchone()
+        sql1 = "UPDATE agents SET failed_missions = %s WHERE id = %s"
+        value1 = (tasks_failed[0] + 1, id)
+        cursor.execute(sql1, value1)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return "tasks failed updated successfully"
+    
+    @staticmethod
+    def get_agent_performance(id):
+        conn = db_connection.get_connection()
+        cursor = conn.cursor()
+        sql = "SELECT completed_missions FROM agents WHERE id = %s"
+        value = id,
+        cursor.execute(sql, value)
+        tasks_completed = cursor.fetchone()
+        sql1 = "SELECT failed_missions FROM agents WHERE id = %s"
+        value1 = id,
+        cursor.execute(sql1, value1)
+        tasks_failed = cursor.fetchone()
+        total_tasks = tasks_completed[0] + tasks_failed[0]
+        return {"completed": tasks_completed[0], "failed": tasks_failed[0],
+                "total": total_tasks, "success_rate": 100 / total_tasks * tasks_completed}
+    
+    @staticmethod
+    def agents_active_count():
+        conn = db_connection.get_connection()
+        cursor = conn.cursor()
+        sql = "SELECT COUNT(is_active) FROM agents"
+        cursor.execute(sql)
+        sum_active_agents = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return sum_active_agents
