@@ -103,6 +103,19 @@
 |9|Only a task can be completed. IN_PROGRESS and changed to completed or failed status|
 |10|Only a task with a status of New or Assigned can be canceled - otherwise an error will occur|
 
+## Endpoint List
+
+### Agents endpoints
+
+|  `Method`  | `Endpoint`  |  `Description`  |
+|------------|-------------|-----------------|
+|POST|agents/|Create a new agent|
+|GET|agents/|All agents|
+|GET|agents/{id}|Agent by id|
+|PUT|agents/{id}|Update agent|
+|PUT|agents/{id}/deactivate|Deactivate agent|
+|GET|agents/{id}/performance|Agent performance| 
+
 
 ## `Running instructions`
 #### docker run -d --name intelligence-mysql\
