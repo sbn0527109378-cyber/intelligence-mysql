@@ -1,2 +1,189 @@
 2026-06-18 15:09:37,936 | DEBUG | Using selector: SelectSelector
 2026-06-18 15:09:40,352 | DEBUG | all_agents
+2026-06-18 15:59:39,002 | DEBUG | Using selector: SelectSelector
+2026-06-18 15:59:40,905 | INFO | updates mission status
+2026-06-18 15:59:40,966 | INFO | updates mission status
+2026-06-18 15:59:40,983 | INFO | The status was updated successfully
+2026-06-18 15:59:40,983 | INFO | The function performs increment completed
+2026-06-18 15:59:41,004 | INFO | increment completing
+2026-06-18 15:59:41,009 | INFO | tasks completed updated successfully
+2026-06-18 16:01:17,136 | INFO | updates mission status
+2026-06-18 16:01:17,170 | INFO | updates mission status
+2026-06-18 16:01:17,180 | INFO | The status was updated successfully
+2026-06-18 16:01:17,181 | INFO | The function performs increment completed
+2026-06-18 16:01:17,212 | INFO | increment completing
+2026-06-18 16:01:17,231 | INFO | tasks completed updated successfully
+2026-06-18 16:03:07,616 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:03:35,754 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:03:43,786 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:04:34,215 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:04:38,978 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:04:56,252 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:05:26,001 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:05:37,986 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:06:52,562 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:07:04,951 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:07:09,658 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:07:20,261 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:07:22,944 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:07:34,467 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:07:36,479 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:07:40,947 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:08:52,036 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:09:02,534 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:12:20,825 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:15:01,702 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:16:49,893 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:08,350 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:13,874 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:18,472 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:22,588 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:25,374 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:26,856 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:40,933 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:45,857 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:17:56,652 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:18:02,599 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:18:04,893 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:18:08,915 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:18:10,838 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:18:46,061 | INFO | assign mission
+2026-06-18 16:18:46,101 | ERROR | Not all parameters were used in the SQL statement
+2026-06-18 16:19:08,573 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:19:32,552 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:19:40,609 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:19:47,846 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:19:52,329 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:19:54,268 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:19:56,237 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:19:57,818 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:20:08,728 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:20:12,135 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:20:14,145 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:20:19,359 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:20:31,149 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:20:32,369 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:20:41,180 | INFO | assign mission
+2026-06-18 16:20:41,225 | ERROR | Could not process parameters: int(1), it must be of type list, tuple or dict
+2026-06-18 16:21:34,483 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:21:35,559 | INFO | assign mission
+2026-06-18 16:21:35,638 | ERROR | Could not process parameters: int(1), it must be of type list, tuple or dict
+2026-06-18 16:21:43,996 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:21:45,731 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:21:45,839 | INFO | assign mission
+2026-06-18 16:21:50,862 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:21:53,305 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:21:56,507 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:21:56,705 | INFO | assign mission
+2026-06-18 16:22:19,716 | INFO | assign mission
+2026-06-18 16:22:21,029 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:22:24,005 | INFO | assign mission
+2026-06-18 16:22:33,670 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:22:42,422 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:22:44,504 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:22:47,489 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:22:49,104 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:22:49,322 | INFO | assign mission
+2026-06-18 16:23:07,097 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:23:09,011 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:23:13,189 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:23:34,845 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:23:39,790 | INFO | assign mission
+2026-06-18 16:23:48,659 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:23:51,898 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:23:55,230 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:23:55,499 | INFO | assign mission
+2026-06-18 16:24:19,465 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:24:26,643 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:24:28,965 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:24:38,237 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:24:40,916 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:24:47,444 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:15,025 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:22,083 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:38,591 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:40,538 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:44,750 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:48,746 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:53,523 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:57,094 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:25:58,536 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:22,131 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:27,793 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:29,212 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:32,838 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:34,451 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:44,172 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:45,720 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:52,464 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:26:58,166 | INFO | assign mission
+2026-06-18 16:27:13,377 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:27:15,269 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:27:57,661 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:28:05,920 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:28:14,246 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:28:20,152 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:28:25,770 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:28:31,312 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:28:36,130 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:28:39,460 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:28:53,444 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:01,097 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:03,823 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:04,519 | INFO | assign mission
+2026-06-18 16:29:04,570 | ERROR | 
+2026-06-18 16:29:11,298 | INFO | assign mission
+2026-06-18 16:29:11,347 | ERROR | 
+2026-06-18 16:29:23,065 | INFO | assign mission
+2026-06-18 16:29:23,128 | ERROR | 
+2026-06-18 16:29:24,298 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:26,825 | INFO | assign mission
+2026-06-18 16:29:26,980 | ERROR | 
+2026-06-18 16:29:35,639 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:40,721 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:40,832 | INFO | assign mission
+2026-06-18 16:29:47,099 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:53,021 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:54,426 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:55,911 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:29:56,007 | INFO | assign mission
+2026-06-18 16:29:56,034 | ERROR | 
+2026-06-18 16:29:57,196 | INFO | assign mission
+2026-06-18 16:29:57,246 | ERROR | 
+2026-06-18 16:30:09,884 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:30:17,414 | INFO | assign mission
+2026-06-18 16:30:30,281 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:30:53,070 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:30:59,911 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:31:36,412 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:31:45,571 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:31:51,065 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:32:42,092 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:32:43,719 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:32:45,191 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:32:46,641 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:32:48,817 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:32:50,965 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:32:52,009 | INFO | assign mission
+2026-06-18 16:32:52,072 | ERROR | Mission not available
+2026-06-18 16:33:06,425 | INFO | assign mission
+2026-06-18 16:33:06,463 | ERROR | Mission not available
+2026-06-18 16:33:07,661 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:33:10,153 | INFO | assign mission
+2026-06-18 16:33:21,743 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:33:31,952 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:34:55,999 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:34:59,381 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:35:12,814 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:35:18,483 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:35:43,090 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:35:50,477 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:35:59,828 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:36:05,854 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:36:09,243 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:36:40,330 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:36:51,437 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:36:54,802 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:37:11,157 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:37:15,066 | DEBUG | Using selector: SelectSelector
+2026-06-18 16:37:22,854 | DEBUG | Using selector: SelectSelector

@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from database.mission_db import MissionDB
+from database.agent_db import AgentDB
 from pydantic_classes import mission
 from logs.logs import get_logger
 
@@ -8,6 +9,7 @@ logger = get_logger(__name__)
 miss = mission.Mission
 
 m = MissionDB()
+a = AgentDB
 router = APIRouter()
 
 @router.post("/")
@@ -39,6 +41,12 @@ def mission_by_id(id: int):
 def assign_mission(id: int, agent_id: int):
     try:
         return m.assign_mission(id, agent_id)
+    except KeyError as e:
+        logger.error(e)
+        raise HTTPException(status_code=404, detail=f"{e}")
+    except ValueError as e:
+        logger.error(e)
+        raise HTTPException(status_code=400, detail=f"{e}")
     except Exception as e:
         logger.error(e)
         raise HTTPException(status_code=400, detail=f"{e}")
@@ -56,7 +64,7 @@ def start_mission(id: int):
 @router.put("/{id}/complete")
 def complete_mission(id: int):
     try:
-        return m.update_mission_status(id, "COMPLETED")
+        return m.update_mission_status(id, "COMPLETED"), a.increment_completed(id)
     except Exception as e:
         logger.error(e)
         raise HTTPException(status_code=400, detail=f"{e}")
@@ -65,7 +73,8 @@ def complete_mission(id: int):
 @router.put("/{id}/fail")
 def fail_mission(id: int):
     try:
-        return m.update_mission_status(id, "FAILED")
+        return m.update_mission_status(id, "FAILED"), a.increment_failed(id)
+    
     except Exception as e:
         logger.error(e)
         raise HTTPException(status_code=400, detail=f"{e}")

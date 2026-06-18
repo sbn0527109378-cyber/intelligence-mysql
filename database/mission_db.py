@@ -70,26 +70,28 @@ class MissionDB:
     def assign_mission(m_id, a_id):
         logger.info("assign mission")
         conn = db_connection.get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         
-        sql1 = "SELECT * FROM missions WHERE assigned_agent_id = %s AND status = %s OR status = %s"
-        values1 = (a_id, "ASSIGNED", "IN_PROGRESS")
-        
+        sql = "SELECT * FROM missions WHERE id = %s"
+        values = m_id,
+        cursor.execute(sql, values)
+        missions_by_id = cursor.fetchone()
+        if not missions_by_id:
+            raise KeyError("Mission not found")
+        if missions_by_id["status"] is not "NEW":
+            raise ValueError("Mission not available")
+        if missions_by_id["risk_level"] is "CRITICAL":
+            raise ValueError("Only Commander can handle critical missions")
+
+        sql1 = "SELECT * FROM agents WHERE id = %s"
+        values1 = a_id,
         cursor.execute(sql1, values1)
-        missions_by_id = cursor.fetchall()
-        
-        if len(missions_by_id) >= 3:
-            return f"{a_id} has too many open tasks"
-        
-        sql2 = "SELECT is_active FROM agents WHERE id = %s"
-        value2 = a_id,
-        
-        cursor.execute(sql2, value2)
-        is_active = cursor.fetchone()
-        
-        if is_active == False:
-            return f"{a_id} is not active"
-        
+        agent_by_id = cursor.fetchone()
+        if not agent_by_id:
+            raise KeyError("Agent not found")
+        if agent_by_id["is_active"] == 0:
+            raise ValueError("Agent is not active")
+
         logger.info("Task assignment")
         sql3 = "UPDATE missions SET assigned_agent_id = %s WHERE id = %s"
         values3 = (m_id, a_id)
