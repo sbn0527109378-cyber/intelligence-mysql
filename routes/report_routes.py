@@ -23,7 +23,8 @@ def General_system_report():
 @router.get("/missions-by-status")
 def missions_by_status():
     return {
-            "open": m.count_open_missions(),
+            "new": m.count_by_status("NEW"),
+            "assigned": m.count_by_status("ASSIGNED"),
             "in_progress": m.count_by_status("IN_PROGRESS"),
             "completed": m.count_by_status("COMPLETED"),
             "failed": m.count_by_status("FAILED"),

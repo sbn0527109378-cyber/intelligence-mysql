@@ -114,7 +114,29 @@
 |GET|agents/{id}|Agent by id|
 |PUT|agents/{id}|Update agent|
 |PUT|agents/{id}/deactivate|Deactivate agent|
-|GET|agents/{id}/performance|Agent performance| 
+|GET|agents/{id}/performance|Agent performance|
+
+### Missions endpoints
+
+|  `Method`  | `Endpoint`  |  `Description`  |
+|------------|-------------|-----------------|
+|POST|missions/|Create a new mission|
+|GET|missions/|All missions|
+|GET|missions/{id}|Missions by id|
+|PUT|missions/{id}/assign/{agent_id}|Agent association|
+|PUT|missions/{id}/start|Starting a task|
+|PUT|missions/{id}/complete|Successful completion|
+|PUT|missions/{id}/fail|Ending in failure|
+|PUT|missions/{id}/start|Cancel a task|
+
+### Reports endpoints
+
+|  `Method`  | `Endpoint`  |  `Description`  |
+|------------|-------------|-----------------|
+|GET|reports/summary|General system report|
+|GET|reports/missions-by-status|Missions by status|
+|GET|reports/top-agent|top_agent|
+
 
 
 ## `Running instructions`
