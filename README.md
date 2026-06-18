@@ -18,12 +18,17 @@
 #### │ ├── agent_routes.py
 #### │ ├── mission_routes.py
 #### │ └──report_routes.py
+#### ├── pydantic_classes/
+#### │ ├── mission.py
+#### │ └──agent.py
 #### ├── logs/
+#### │ ├── logs.py
 #### │ └──app.log
 #### ├── README.md
 #### ├── requirements.txt
 #### ├── .gitignore
 #### └── main.py
+
 
 ## `Table structure`
 
