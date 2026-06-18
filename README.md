@@ -109,7 +109,7 @@
 #### -e MYSQL_ROOT_PASSWORD=1234 \
 #### -e MYSQL_DATABASE=Intelligence_db\
 #### -p 3306:3306\
-#### -d mysql:8.0
+#### -d mysql:8
 
 #### python -m venv venv
 #### venv/Scripts/activate
@@ -117,3 +117,4 @@
 #### pip install -r requirements.txt
 
 #### pythom main.py
+.
