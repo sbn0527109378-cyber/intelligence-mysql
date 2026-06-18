@@ -83,6 +83,13 @@ class MissionDB:
         if missions_by_id["risk_level"] is "CRITICAL":
             raise ValueError("Only Commander can handle critical missions")
 
+        # sql2 = "SELECT COUNT(*) FROM missions WHERE assigned_agent_id = %s"
+        # value2 = a_id,
+        # cursor.execute(sql2, value2)
+        # count = cursor.fetchone()
+        # if count[0] >= 3:
+        #     raise ValueError("Agent has reached maximum missions")
+
         sql1 = "SELECT * FROM agents WHERE id = %s"
         values1 = a_id,
         cursor.execute(sql1, values1)
