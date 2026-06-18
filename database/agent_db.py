@@ -1,19 +1,21 @@
 from database import db_connection
 from pydantic_classes import agent
 
-a = agent.Agent
-
 class AgentDB:
     @staticmethod
-    def create_agent(data: a):
+    def create_agent(data):
         conn = db_connection.get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         sql = "INSERT INTO agents (name, specialty, is_active," \
         "completed_missions, failed_missions, agent_rank) VALUES (%s, %s, %s, %s, %s, %s)"
         values = (data.name, data.specialty, data.is_active, data.completed_missions, data.failed_missions, data.agent_rank)
         cursor.execute(sql, values)
         conn.commit()
-        new_agent = cursor.lastrowid
+        lastrow = cursor.lastrowid
+        sql1 = "SELECT * FROM agents WHERE id = %s"
+        value1 = lastrow,
+        cursor.execute(sql1, value1)
+        new_agent = cursor.fetchall()
         cursor.close()
         conn.close()
         return new_agent
@@ -21,8 +23,8 @@ class AgentDB:
     @staticmethod
     def get_all_agents():
         conn = db_connection.get_connection()
-        cursor = conn.cursor()
-        sql = "SELECT name FROM agents"
+        cursor = conn.cursor(dictionary=True)
+        sql = "SELECT * FROM agents"
         cursor.execute(sql)
         all_agents = cursor.fetchall()
         cursor.close()
@@ -33,7 +35,7 @@ class AgentDB:
     def get_agent_by_id(id):
         try:
             conn = db_connection.get_connection()
-            cursor = conn.cursor()
+            cursor = conn.cursor(dictionary=True)
             sql = "SELECT * FROM agents WHERE ID = %s"
             value = id,
             cursor.execute(sql, value)
@@ -45,7 +47,7 @@ class AgentDB:
             return None
 
     @staticmethod
-    def update_agent(id, data: a):
+    def update_agent(id, data):
         conn = db_connection.get_connection()
         cursor = conn.cursor()
         sql = "UPDATE agents SET name = %s, specialty = %s, is_active = %s," \
