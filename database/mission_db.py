@@ -7,7 +7,7 @@ class MissionDB:
     @staticmethod
     def create_mission(data: m):
         conn = db_connection.get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         risk = data.difficulty * 2 + data.importance
         if 0 <= risk < 10:
             risk_l = "LOW"
@@ -17,13 +17,19 @@ class MissionDB:
             risk_l = "HIGH"
         elif risk >= 25:
             risk_l = "CRITICAL"
+        if 0 > data.difficulty or data.difficulty > 10 or 0 > data.importance or data.importance > 10:
+            raise KeyError
         sql = "INSERT INTO missions (title, description, location, difficulty, importance," \
-        "status,risk_level assigned_agent_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        "status, risk_level, assigned_agent_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         values = (data.title, data.description, data.location, data.difficulty,
-                  data.importance, data.status,risk_l, data.assigned_agent_id)
+                  data.importance, data.status ,risk_l, data.assigned_agent_id)
         cursor.execute(sql, values)
         conn.commit()
-        new_mission = cursor.lastrowid
+        lastrow = cursor.lastrowid
+        sql1 = "SELECT * FROM missions WHERE id = %s"
+        value1 = lastrow,
+        cursor.execute(sql1, value1)
+        new_mission = cursor.fetchall()
         cursor.close()
         conn.close()
         return new_mission
@@ -31,8 +37,8 @@ class MissionDB:
     @staticmethod
     def get_all_missions():
         conn = db_connection.get_connection()
-        cursor = conn.cursor()
-        sql = "SELECT title FROM missions"
+        cursor = conn.cursor(dictionary=True)
+        sql = "SELECT * FROM missions"
         cursor.execute(sql)
         all_missions = cursor.fetchall()
         cursor.close()
@@ -43,7 +49,7 @@ class MissionDB:
     def get_mission_by_id(id):
         try:
             conn = db_connection.get_connection()
-            cursor = conn.cursor()
+            cursor = conn.cursor(dictionary=True)
             sql = "SELECT * FROM missions WHERE id = %s"
             value = id,
             cursor.execute(sql, value)
@@ -127,7 +133,7 @@ class MissionDB:
     def count_by_status(status):
         conn = db_connection.get_connection()
         cursor = conn.cursor()
-        sql = "SELECT COUNT(%s) FROM missions"
+        sql = "SELECT COUNT(*) FROM missions WHERE status = %s"
         value = status,
         cursor.execute(sql, value)
         amount_missions_by_status = cursor.fetchone()
@@ -139,15 +145,15 @@ class MissionDB:
     def count_open_missions():
         conn = db_connection.get_connection()
         cursor = conn.cursor()
-        sql = "SELECT * FROM missions WHERE status = %s OR status = %s OR status = %s"
+        sql = "SELECT COUNT(*) FROM missions WHERE status = %s OR status = %s OR status = %s"
         value = ("NEW", "ASSIGNED", "IN_PROGRESS")
         cursor.execute(sql, value)
-        open_missions = cursor.fetchall()
+        open_missions = cursor.fetchone()
         cursor.close()
         conn.close()
         if open_missions:
-            return open_missions
-        return []
+            return open_missions[0]
+        return 0
     
     @staticmethod
     def count_critical_missions():
@@ -164,11 +170,12 @@ class MissionDB:
     @staticmethod
     def get_top_agent():
         conn = db_connection.get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         sql = "SELECT completed_missions FROM agents"
         cursor.execute(sql)
         all_completed_missions = cursor.fetchall()
-        top = max(all_completed_missions)
+        top = [complete_mission["completed_missions"] for complete_mission in all_completed_missions]
+        top = max(top)
         sql1 = "SELECT * FROM agents WHERE completed_missions = %s"
         value1 = top,
         cursor.execute(sql1, value1)

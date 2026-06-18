@@ -120,7 +120,7 @@ class AgentDB:
                 "total": total_tasks, "success_rate": 100 / total_tasks * tasks_completed}
     
     @staticmethod
-    def agents_active_count():
+    def count_active_agents():
         conn = db_connection.get_connection()
         cursor = conn.cursor()
         sql = "SELECT COUNT(is_active) FROM agents"
@@ -128,4 +128,4 @@ class AgentDB:
         sum_active_agents = cursor.fetchone()
         cursor.close()
         conn.close()
-        return sum_active_agents
+        return sum_active_agents[0]
